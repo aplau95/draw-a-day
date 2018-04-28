@@ -14,6 +14,7 @@
 		9F3F26992086B8EE00A6DC3A /* Draw_A_DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3F26982086B8EE00A6DC3A /* Draw_A_DayTests.swift */; };
 		9F3F26A42086B8EE00A6DC3A /* Draw_A_DayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3F26A32086B8EE00A6DC3A /* Draw_A_DayUITests.swift */; };
 		9F3F26B62087370100A6DC3A /* DictionaryCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3F26B52087370100A6DC3A /* DictionaryCall.swift */; };
+		9F912D0F20944B9100009E6E /* paint-strokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F912D0E20944B9000009E6E /* paint-strokes.png */; };
 		9FD3EA5A20940B6800BD4E66 /* GetWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD3EA5920940B6700BD4E66 /* GetWord.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		9F3F26A32086B8EE00A6DC3A /* Draw_A_DayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draw_A_DayUITests.swift; sourceTree = "<group>"; };
 		9F3F26A52086B8EE00A6DC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3F26B52087370100A6DC3A /* DictionaryCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCall.swift; sourceTree = "<group>"; };
+		9F912D0E20944B9000009E6E /* paint-strokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint-strokes.png"; path = "../../../../../Desktop/paint-strokes.png"; sourceTree = "<group>"; };
 		9FD3EA5920940B6700BD4E66 /* GetWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 		9F3F26822086B8ED00A6DC3A /* Draw-A-Day */ = {
 			isa = PBXGroup;
 			children = (
+				9F912D0E20944B9000009E6E /* paint-strokes.png */,
 				9FD3EA5920940B6700BD4E66 /* GetWord.swift */,
 				9F3F26832086B8ED00A6DC3A /* AppDelegate.swift */,
 				9F3F26872086B8ED00A6DC3A /* Main.storyboard */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F912D0F20944B9100009E6E /* paint-strokes.png in Resources */,
 				9F3F268E2086B8ED00A6DC3A /* LaunchScreen.storyboard in Resources */,
 				9F3F268B2086B8ED00A6DC3A /* Assets.xcassets in Resources */,
 				9F3F26892086B8ED00A6DC3A /* Main.storyboard in Resources */,
