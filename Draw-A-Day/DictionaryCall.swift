@@ -26,24 +26,33 @@ struct Results: Decodable{
 class API {
     
     var count: Int = 0
+    var cat = ""
     
-    func randomOffset(count: Int) -> Int {
-        print("random count is " + "\(count)")
+    func randomOffset(_ count: Int) -> Int {
         let rand = Int(arc4random_uniform(UInt32(count)));
-        print("the random num is " + "\(rand)")
         return rand
         
     }
     
-    init(){
+    func categoryStr(_ category: String) -> String {
+        let newString = category.replacingOccurrences(of: " ", with: "_")
+        return newString
+    }
+    
+    func changeCat(_ category: String){
+        self.cat = categoryStr(category)
+    }
+    
+    init(_ category: String){
+        self.cat = categoryStr(category)
+        
         let appId = "111aab88"
         let appKey = "78ff37165f7543bcb86ee546b7e8e8c3"
         let language = "en"
-        let filters = "lexicalCategory=noun;domains=Clothing"
+        let filters = "lexicalCategory=noun;domains=\(self.cat)"
         let limit = "?limit=2"
         let jsonUrlString = "https://od-api.oxforddictionaries.com:443/api/v1/wordlist/\(language)/\(filters)\(limit)"
         var url : URL!
-        var count:Int = 0
         url = URL(string: jsonUrlString)
         var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -55,24 +64,24 @@ class API {
             
             do {
                 let root = try JSONDecoder().decode(Root.self, from : data)
-                if let lr = try? root.metadata.total{ self.count = lr}
+                if let lr = try? root.metadata.total{
+                    self.count = lr
+                }
             } catch let jsonErr {
                 print("Error serializaing json:", jsonErr)
             }
-            print("count is " + "\(self.count)")
+            print("number of words in cat is " + "\(self.count)")
         }).resume()
         
     }
     
     func dictCall(completion: @escaping (String) -> ()){
         var noun: String = ""
-        
-        let newOffset = randomOffset(count: self.count)
-        print("offset is " + "\(newOffset)")
+        let newOffset = randomOffset(count)
         let appId = "111aab88"
         let appKey = "78ff37165f7543bcb86ee546b7e8e8c3"
         let language = "en"
-        let filters = "lexicalCategory=noun;domains=Clothing"
+        let filters = "lexicalCategory=noun;domains=\(cat)"
         let limit = "?limit=1"
         let offset2 = "&offset=\(newOffset)"
         let jsonUrlString = "https://od-api.oxforddictionaries.com:443/api/v1/wordlist/\(language)/\(filters)\(limit)\(offset2)"
@@ -90,7 +99,6 @@ class API {
             guard let data = data else {return}
             
             do {
-                print(data.count)
                 let root = try JSONDecoder().decode(Root.self, from : data)
                 
                 if let wordObject = try? root.results[0].word {
